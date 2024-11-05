@@ -14,8 +14,10 @@ export default function SavedProfilesPage() {
                     Back to Profiles
                 </Button>
             </Link>
-            <h1 className="mb-6 text-2xl font-bold">Saved Profiles</h1>
-            <SavedProfilesList />
+            <div className="flex flex-col gap-6 pl-2">
+                <h1 className="mb-6 text-2xl font-bold">Saved Profiles</h1>
+                <SavedProfilesList />
+            </div>
         </div>
     );
 }

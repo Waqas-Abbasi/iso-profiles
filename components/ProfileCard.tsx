@@ -2,6 +2,7 @@
 
 import { Profile } from '@prisma/client';
 
+import DOMPurify from 'isomorphic-dompurify';
 import { MapPin, Calendar, Users } from 'lucide-react';
 
 import { useEffect, useState } from 'react';
@@ -27,6 +28,13 @@ export default function ProfileCard({ profile }: ProfileCardProps) {
     const isSeen = seenProfiles.has(profile.id.toString());
     const { saveProfile, removeProfile, isProfileSaved } = useSavedProfiles();
     const isSaved = isProfileSaved(profile.id);
+    const sanitizedBio = DOMPurify.sanitize(profile.bio);
+
+    function stripHtml(html: string) {
+        const tmp = document.createElement('DIV');
+        tmp.innerHTML = html;
+        return tmp.textContent || tmp.innerText || '';
+    }
 
     useEffect(() => {
         if (isExpanded) {
@@ -56,10 +64,10 @@ export default function ProfileCard({ profile }: ProfileCardProps) {
                     }`}
                 >
                     <CardHeader>
-                        <div className="flex items-start justify-between gap-4">
+                        <div className="flex items-center justify-between gap-4">
                             <div className="flex items-center gap-2">
                                 <h3 className="break-all text-xl font-semibold sm:text-2xl">
-                                    u/{profile.redditUsername}
+                                    {profile.redditUsername}
                                 </h3>
                                 {isSeen && (
                                     <Badge
@@ -80,17 +88,19 @@ export default function ProfileCard({ profile }: ProfileCardProps) {
                     </CardHeader>
                     <CardContent>
                         <div className="space-y-4">
-                            <div className="flex items-center gap-2 text-muted-foreground">
-                                <MapPin className="h-4 w-4" />
-                                <span>{profile.location}</span>
-                                {profile.willingToRelocate && (
-                                    <Badge
-                                        hoverable={false}
-                                        className="border-0 bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300"
-                                    >
-                                        Open to Relocate
-                                    </Badge>
-                                )}
+                            <div className="flex gap-2 text-muted-foreground">
+                                <MapPin className="mt-1 h-4 w-4 shrink-0" />
+                                <div className="flex flex-wrap items-center gap-2">
+                                    <span className="break-all">{profile.location}</span>
+                                    {profile.willingToRelocate && (
+                                        <Badge
+                                            hoverable={false}
+                                            className="shrink-0 border-0 bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300"
+                                        >
+                                            Open to Relocate
+                                        </Badge>
+                                    )}
+                                </div>
                             </div>
 
                             <div className="flex items-center gap-2 text-muted-foreground">
@@ -105,9 +115,9 @@ export default function ProfileCard({ profile }: ProfileCardProps) {
                                 <span>{profile.maritalStatus}</span>
                             </div>
 
-                            <p className="line-clamp-2 text-sm text-muted-foreground">
-                                {profile.interesting}
-                            </p>
+                            <div className="line-clamp-3 text-sm text-muted-foreground">
+                                {stripHtml(sanitizedBio)}
+                            </div>
                         </div>
                     </CardContent>
                 </Card>

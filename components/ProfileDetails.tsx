@@ -3,6 +3,7 @@
 import { Profile } from '@prisma/client';
 
 import { DialogTitle } from '@radix-ui/react-dialog';
+import DOMPurify from 'isomorphic-dompurify';
 import { Bookmark, ExternalLink } from 'lucide-react';
 import Link from 'next/link';
 
@@ -19,6 +20,8 @@ export default function ProfileDetails({
     isSaved,
     handleSaveToggle,
 }: ProfileDetailsProps) {
+    const sanitizedBio = DOMPurify.sanitize(profile.bio);
+
     return (
         <div className="space-y-6">
             <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
@@ -63,32 +66,16 @@ export default function ProfileDetails({
                         profile.willingToRelocate ? '(willing to relocate)' : ''
                     }`}
                 />
-                <DetailItem
-                    label="Ethnicity"
-                    value={`${profile.ethnicity} ${profile.openToMixing ? '(open to mixing)' : ''}`}
-                />
                 <DetailItem label="Marital Status" value={profile.maritalStatus} />
                 <DetailItem label="Marriage Timeline" value={profile.marriageTimeline} />
-                <DetailItem label="Education" value={profile.education} />
-                <DetailItem label="Education Wanted" value={profile.educationWanted} />
-                <DetailItem label="Job Status" value={profile.jobStatus} />
-                <DetailItem label="Want Kids" value={profile.wantKids ? 'Yes' : 'No'} />
-                <DetailItem label="Religiosity" value={profile.religiosity} />
             </div>
 
             <div className="space-y-4">
-                <h3 className="text-lg font-semibold">Important Characteristics</h3>
-                <p className="text-muted-foreground">{profile.characteristics}</p>
-            </div>
-
-            <div className="space-y-4">
-                <h3 className="text-lg font-semibold">Hobbies</h3>
-                <p className="text-muted-foreground">{profile.hobbies}</p>
-            </div>
-
-            <div className="space-y-4">
-                <h3 className="text-lg font-semibold">Interesting Fact</h3>
-                <p className="text-muted-foreground">{profile.interesting}</p>
+                <h3 className="text-lg font-semibold">About</h3>
+                <div
+                    className="prose prose-sm max-w-none rounded-xl border bg-gray-50 px-4 py-2 text-gray-900"
+                    dangerouslySetInnerHTML={{ __html: sanitizedBio }}
+                />
             </div>
         </div>
     );

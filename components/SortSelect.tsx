@@ -11,11 +11,11 @@ import {
 } from '@/components/ui/select';
 
 export default function SortSelect() {
-    const [sort, setSort] = useQueryState('sort', { defaultValue: 'newest' });
+    const [sort, setSort] = useQueryState('sort', { defaultValue: 'newest', shallow: false });
 
     return (
         <Select value={sort} onValueChange={setSort}>
-            <SelectTrigger className="w-[180px]">
+            <SelectTrigger className="w-full md:w-[180px]">
                 <SelectValue placeholder="Sort by..." />
             </SelectTrigger>
             <SelectContent>

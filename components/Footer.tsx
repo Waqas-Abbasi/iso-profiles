@@ -9,6 +9,8 @@ export default function Footer() {
                     <div className="flex items-center space-x-4">
                         <Link
                             href="https://www.reddit.com/user/Brave-ship/"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="flex items-center text-sm text-muted-foreground transition-colors hover:text-primary"
                         >
                             Contact Us
@@ -25,7 +27,7 @@ export default function Footer() {
                     </Link>
                 </div>
                 <div className="mt-4 text-center text-sm text-muted-foreground">
-                    © {new Date().getFullYear()} Matrimonial Profiles. All rights reserved.
+                    © {new Date().getFullYear()} ISO Profiles. All rights reserved.
                 </div>
             </div>
         </footer>

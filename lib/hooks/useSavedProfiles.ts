@@ -32,7 +32,7 @@ export function useSavedProfiles() {
         });
     }
 
-    function removeProfile(profileId: number) {
+    function removeProfile(profileId: string) {
         setSavedProfiles((current) => {
             const newProfiles = current.filter((p) => p.id !== profileId);
             localStorage.setItem('savedProfiles', JSON.stringify(newProfiles));
@@ -40,7 +40,7 @@ export function useSavedProfiles() {
         });
     }
 
-    function isProfileSaved(profileId: number) {
+    function isProfileSaved(profileId: string) {
         return savedProfiles.some((p) => p.id === profileId);
     }
 
