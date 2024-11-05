@@ -1,8 +1,8 @@
-# ISO Profiles
+# Muslim Marriage Profiles
 
-A helper tool for Reddit's Muslim Marriage ISO profiles. You can browse profiles, sort, filter, save profiles you're interested in and create profiles.
+A match-making directory for Muslims on Reddit looking for spouses.
 
-We collect no data except for the profile data, and everything-else is stored locally on your device. 
+No data except for the profile data (which is public), and everything-else is stored locally on your device. 
 
 This project was created because I found it frustrating to browse the ISO threads using Reddit's default interface.
 

@@ -426,10 +426,6 @@ export default function AddProfile() {
                                                     <p className="font-medium">
                                                         Please answer these questions
                                                     </p>
-                                                    <FormDescription className="mt-1">
-                                                        You can copy/paste your answers from your
-                                                        ISO profile on reddit.
-                                                    </FormDescription>
                                                     <ul className="mt-2 list-disc space-y-2 pl-4 text-sm">
                                                         <li>
                                                             Ethnicity, and are you more open to

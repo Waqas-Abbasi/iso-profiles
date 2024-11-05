@@ -38,11 +38,9 @@ export default async function ProfilesPage({
         <div className="container mx-auto space-y-8 px-4 py-8">
             <div className="flex flex-col-reverse items-start justify-between gap-4 sm:flex-row sm:items-center">
                 <div className="flex w-full flex-col gap-2">
-                    <h1 className="text-4xl font-bold text-primary">ISO Profiles</h1>
+                    <h1 className="text-4xl font-bold text-primary">Muslim Marriage Profiles</h1>
                     <p className="text-muted-foreground">
-                        A helper tool for Reddit&apos;s Muslim Marriage ISO profiles. Browse
-                        profiles with an improved interface, sort and filter to find matches, save
-                        profiles you&apos;re interested in, and create your own.
+                        A match-making directory for Muslims on Reddit looking for spouses.
                     </p>
                 </div>
                 <div className="flex w-full items-center justify-end gap-4">

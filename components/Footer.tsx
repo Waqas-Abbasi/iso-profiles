@@ -27,7 +27,7 @@ export default function Footer() {
                     </Link>
                 </div>
                 <div className="mt-4 text-center text-sm text-muted-foreground">
-                    © {new Date().getFullYear()} ISO Profiles. All rights reserved.
+                    © {new Date().getFullYear()} Muslim Marriage Profiles. All rights reserved.
                 </div>
             </div>
         </footer>
