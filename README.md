@@ -15,7 +15,7 @@ This project was created because I found it frustrating to browse the ISO thread
 * **Components:** Radix UI with shadcn/ui
 * **State Management:** React Hooks + URL State with nuqs
 * **Form Handling:** React Hook Form + Zod
-* **Deployment:** [To be implemented]
+* **Deployment:** Vercel + Neon Tech
 
 ## Getting Started
 
@@ -39,13 +39,20 @@ npm install
 yarn install
 ```
 
-3. Set up the database:
+3. Set up your database:
+   - Create a PostgreSQL database (locally or using a service like Neon Tech)
+   - Create a `.env` file in the root directory:
+```env
+DATABASE_URL="postgresql://username:password@localhost:5432/your-database-name"
+```
+
+4. Initialize the database:
 ```bash
 npm run db:push
 npm run db:seed
 ```
 
-4. Start the development server:
+5. Start the development server:
 ```bash
 npm run dev
 # or
@@ -64,33 +71,12 @@ iso-profiles/
 │   └── layout.tsx         # Root layout
 ├── components/            # React components
 │   ├── ui/               # Reusable UI components
-│   └── ProfileCard.tsx   # Profile display component
 ├── lib/                  # Utility functions and hooks
 │   ├── actions/         # Server actions
 │   └── hooks/           # Custom React hooks
 ├── prisma/              # Database schema and migrations
 └── public/              # Static assets
 ```
-
-## Development
-
-### Key Conventions
-
-* Use TypeScript for all code files
-* Follow functional programming patterns
-* Implement responsive design with Tailwind CSS
-* Optimize for Core Web Vitals
-* Keep client components minimal; prefer Server Components
-* Use URL state management with nuqs for filters
-
-### Database Schema
-
-The main Profile model includes:
-* Basic info (age, gender, location)
-* Preferences (age range, relocation)
-* Background (ethnicity, education)
-* Religious aspects (religiosity)
-* Personal details (hobbies, interesting facts)
 
 ## Contributing
 
