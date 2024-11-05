@@ -1,16 +1,10 @@
-# Muslim Matrimonial Profiles
+# ISO Profiles
 
-A modern web application built with Next.js 14 that helps Muslim individuals create and browse matrimonial profiles in a clean, organized way.
+A helper tool for Reddit's Muslim Marriage ISO profiles. You can browse profiles, sort, filter, save profiles you're interested in and create profiles.
 
-## Features
+We collect no data except for the profile data, and everything-else is stored locally on your device. 
 
-* 🚀 Create detailed matrimonial profiles with a multi-step form
-* 🔍 Advanced filtering and search capabilities
-* 💾 Save profiles for later viewing
-* 👀 Track seen/unseen profiles
-* 📱 Fully responsive design
-* 🌙 Dark mode support
-* 🔒 Privacy-focused with Reddit usernames for communication
+This project was created because I found it frustrating to browse the ISO threads using Reddit's default interface.
 
 ## Tech Stack
 
@@ -28,14 +22,14 @@ A modern web application built with Next.js 14 that helps Muslim individuals cre
 ### Prerequisites
 
 * Node.js 18+ 
-* npm or yarn
+* npm or yarn or pnpm
 
 ### Installation
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/muslim-matrimonial.git
-cd muslim-matrimonial
+git clone https://github.com/Waqas-Abbasi/iso-profiles
+cd iso-profiles
 ```
 
 2. Install dependencies:
@@ -63,7 +57,7 @@ yarn dev
 ## Project Structure
 
 ```
-muslim-matrimonial/
+iso-profiles/
 ├── app/                    # Next.js app directory
 │   ├── add-profile/       # Profile creation form
 │   ├── saved/             # Saved profiles page
@@ -110,18 +104,4 @@ We welcome contributions! Please follow these steps:
 6. Push to branch: `git push origin feature/your-feature`
 7. Submit a pull request
 
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Acknowledgments
-
-* Next.js (https://nextjs.org/)
-* Radix UI (https://www.radix-ui.com/)
-* shadcn/ui (https://ui.shadcn.com/)
-* Tailwind CSS (https://tailwindcss.com/)
-* Prisma (https://www.prisma.io/)
-
 ---
-
-Made with ❤️ by the Muslim Matrimonial team
