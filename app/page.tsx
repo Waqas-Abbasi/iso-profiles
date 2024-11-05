@@ -40,7 +40,8 @@ export default async function ProfilesPage({
                 <div className="flex w-full flex-col gap-2">
                     <h1 className="text-4xl font-bold text-primary">Muslim Marriage Profiles</h1>
                     <p className="text-muted-foreground">
-                        A match-making directory for Muslims on Reddit looking for spouses.
+                        A match-making directory for Muslims on Reddit looking for spouses. For
+                        those serious about marriage.
                     </p>
                 </div>
                 <div className="flex w-full items-center justify-end gap-4">

@@ -45,7 +45,7 @@ export default function ProfilesClient({ initialProfiles }: ProfilesClientProps)
                         }`}
                         onClick={() => setGender(gender === 'Female' ? null : 'Female')}
                     >
-                        👩 Female
+                        🧕 Female
                     </Badge>
                     <Badge
                         hoverable={false}
