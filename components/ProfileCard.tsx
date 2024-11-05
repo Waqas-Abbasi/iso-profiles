@@ -113,7 +113,7 @@ export default function ProfileCard({ profile }: ProfileCardProps) {
                 </Card>
             </DialogTrigger>
 
-            <DialogContent className="max-w-2xl">
+            <DialogContent className="max-h-[90vh] max-w-2xl overflow-y-auto">
                 <ProfileDetails
                     profile={profile}
                     isSaved={isSaved}

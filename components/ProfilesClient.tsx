@@ -5,7 +5,6 @@ import { useSearchParams } from 'next/navigation';
 import { useQueryState } from 'nuqs';
 import { useState } from 'react';
 
-import { ClientOnly } from '@/components/ClientOnly';
 import Filters from '@/components/Filters';
 import SortSelect from '@/components/SortSelect';
 import { Badge } from '@/components/ui/badge';
@@ -106,23 +105,21 @@ export default function ProfilesContent({ initialProfiles }: ProfilesClientProps
                 </div>
             </div>
 
-            <ClientOnly>
-                <ProfilesList
-                    profiles={profiles}
-                    filters={{
-                        location,
-                        minAge,
-                        maxAge,
-                        gender,
-                        maritalStatus,
-                        willingToRelocate,
-                        sort,
-                    }}
-                    page={page}
-                    setPage={setPage}
-                    profilesPerPage={profilesPerPage}
-                />
-            </ClientOnly>
+            <ProfilesList
+                profiles={profiles}
+                filters={{
+                    location,
+                    minAge,
+                    maxAge,
+                    gender,
+                    maritalStatus,
+                    willingToRelocate,
+                    sort,
+                }}
+                page={page}
+                setPage={setPage}
+                profilesPerPage={profilesPerPage}
+            />
         </>
     );
 }

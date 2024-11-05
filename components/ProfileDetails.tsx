@@ -4,6 +4,7 @@ import { Profile } from '@prisma/client';
 
 import { DialogTitle } from '@radix-ui/react-dialog';
 import { Bookmark, ExternalLink } from 'lucide-react';
+import Link from 'next/link';
 
 import { Button } from '@/components/ui/button';
 
@@ -20,24 +21,32 @@ export default function ProfileDetails({
 }: ProfileDetailsProps) {
     return (
         <div className="space-y-6">
-            <div className="flex items-start justify-between">
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
                 <DialogTitle className="text-2xl font-bold">Profile Details</DialogTitle>
 
-                <div className="flex items-center gap-2">
-                    <Button variant={isSaved ? 'secondary' : 'outline'} onClick={handleSaveToggle}>
+                <div className="flex w-full flex-col gap-2 sm:w-auto sm:flex-row sm:items-center">
+                    <Button
+                        variant={isSaved ? 'secondary' : 'outline'}
+                        onClick={handleSaveToggle}
+                        className="w-full sm:w-auto"
+                    >
                         <Bookmark className={`mr-2 h-4 w-4 ${isSaved ? 'fill-current' : ''}`} />
                         {isSaved ? 'Saved' : 'Save'}
                     </Button>
-                    <a
+                    <Link
                         href={`https://reddit.com/user/${profile.redditUsername}`}
                         target="_blank"
                         rel="noopener noreferrer"
+                        className="w-full sm:w-auto"
                     >
-                        <Button variant="outline" className="flex items-center gap-2">
+                        <Button
+                            variant="outline"
+                            className="flex w-full items-center gap-2 sm:w-auto"
+                        >
                             <ExternalLink className="h-4 w-4" />
                             Message on Reddit
                         </Button>
-                    </a>
+                    </Link>
                 </div>
             </div>
 

@@ -2,7 +2,7 @@ import { ArrowLeft } from 'lucide-react';
 
 import Link from 'next/link';
 
-import { SavedProfilesClient } from '@/components/SavedProfilesClient';
+import { SavedProfilesList } from '@/components/SavedProfilesList';
 import { Button } from '@/components/ui/button';
 
 export default function SavedProfilesPage() {
@@ -15,7 +15,7 @@ export default function SavedProfilesPage() {
                 </Button>
             </Link>
             <h1 className="mb-6 text-2xl font-bold">Saved Profiles</h1>
-            <SavedProfilesClient />
+            <SavedProfilesList />
         </div>
     );
 }

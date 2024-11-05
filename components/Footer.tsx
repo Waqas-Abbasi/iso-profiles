@@ -1,4 +1,4 @@
-import { Github, Mail } from 'lucide-react';
+import { Github } from 'lucide-react';
 import Link from 'next/link';
 
 export default function Footer() {
@@ -8,15 +8,14 @@ export default function Footer() {
                 <div className="flex flex-col items-center justify-between space-y-4 md:flex-row md:space-y-0">
                     <div className="flex items-center space-x-4">
                         <Link
-                            href="mailto:contact@matrimonialprofiles.com"
+                            href="https://www.reddit.com/user/Brave-ship/"
                             className="flex items-center text-sm text-muted-foreground transition-colors hover:text-primary"
                         >
-                            <Mail className="mr-2 h-4 w-4" />
                             Contact Us
                         </Link>
                     </div>
                     <Link
-                        href="https://github.com/yourusername/matrimonial-profiles"
+                        href="https://github.com/Waqas-Abbasi/iso-profiles"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center text-sm text-muted-foreground transition-colors hover:text-primary"
