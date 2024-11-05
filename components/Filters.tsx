@@ -28,8 +28,6 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/co
 
 import { cn } from '@/lib/utils';
 
-import { Switch } from './ui/switch';
-
 export default function Filters() {
     const [location, setLocation] = useQueryState('location', {
         shallow: false,
@@ -49,9 +47,9 @@ export default function Filters() {
     const [gender, setGender] = useQueryState('gender', {
         shallow: false,
     });
-    const [willingToRelocate, setWillingToRelocate] = useQueryState<boolean>('relocate', {
-        parse: (v: string | null) => v === 'true',
-        serialize: (v: boolean) => (v ? 'true' : 'false'),
+
+    const [willingToRelocate, setWillingToRelocate] = useQueryState<string>('relocate', {
+        parse: (value) => value || 'any',
         shallow: false,
     });
 
@@ -120,15 +118,26 @@ export default function Filters() {
                         </div>
 
                         <div className="space-y-2">
-                            <div className="flex items-center justify-between">
-                                <Label>Willing to Relocate</Label>
-                                <Switch
-                                    checked={willingToRelocate || false}
-                                    onCheckedChange={(checked) => setWillingToRelocate(checked)}
-                                />
-                            </div>
+                            <Label>Willing to Relocate</Label>
+                            <Select
+                                value={willingToRelocate ?? 'any'}
+                                onValueChange={(value) =>
+                                    setWillingToRelocate(value === 'any' ? null : value)
+                                }
+                            >
+                                <SelectTrigger>
+                                    <SelectValue placeholder="Select relocation preference" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                    <SelectItem value="any">Any</SelectItem>
+                                    <SelectItem value="willing">Willing to Relocate</SelectItem>
+                                    <SelectItem value="not-willing">
+                                        Not Willing to Relocate
+                                    </SelectItem>
+                                </SelectContent>
+                            </Select>
                             <p className="text-sm text-muted-foreground">
-                                Show only profiles open to relocation
+                                Filter profiles by relocation preference
                             </p>
                         </div>
 

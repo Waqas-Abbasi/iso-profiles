@@ -29,7 +29,7 @@ export default async function ProfilesPage({
         userAge: userAge ? parseInt(userAge) : undefined,
         maritalStatus: maritalStatus,
         gender: gender,
-        relocate: relocate ? relocate === 'true' : undefined,
+        relocate: relocate,
         marriageTimeline: marriageTimeline,
         sort,
     });

@@ -18,7 +18,7 @@ export async function getFilteredProfiles(params: {
     userAge?: number;
     maritalStatus?: string;
     gender?: string;
-    relocate?: boolean;
+    relocate?: string;
     marriageTimeline?: string;
     sort?: string;
 }) {
@@ -43,8 +43,8 @@ export async function getFilteredProfiles(params: {
             };
         }
 
-        if (params.relocate !== undefined && params.relocate !== null) {
-            where.willingToRelocate = params.relocate;
+        if (params.relocate !== 'any' && params.relocate !== undefined) {
+            where.willingToRelocate = params.relocate === 'willing';
         }
 
         if (params.marriageTimeline) {
