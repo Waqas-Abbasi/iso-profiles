@@ -35,7 +35,7 @@ export default async function ProfilesPage({
     });
 
     return (
-        <div className="container mx-auto space-y-8 px-4 py-8">
+        <div className="container mx-auto space-y-8 py-8">
             <div className="flex flex-col-reverse items-start justify-between gap-4 sm:flex-row sm:items-center">
                 <div className="flex w-full flex-col gap-2">
                     <h1 className="text-4xl font-bold text-primary">Muslim Marriage Profiles</h1>

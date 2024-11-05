@@ -33,7 +33,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <body className={inter.className}>
                 <NuqsAdapter>
                     <div className="flex min-h-screen flex-col">
-                        <main className="flex-grow px-5">{children}</main>
+                        <main className="flex-grow px-4 sm:px-5">{children}</main>
                         <Footer />
                     </div>
                     <Toaster richColors />

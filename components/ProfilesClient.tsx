@@ -14,7 +14,7 @@ interface ProfilesClientProps {
     initialProfiles: Profile[];
 }
 
-export default function ProfilesContent({ initialProfiles }: ProfilesClientProps) {
+export default function ProfilesClient({ initialProfiles }: ProfilesClientProps) {
     const [gender, setGender] = useQueryState('gender', {
         shallow: false,
     });
@@ -26,7 +26,7 @@ export default function ProfilesContent({ initialProfiles }: ProfilesClientProps
             <div className="flex flex-col gap-4 sm:flex-row">
                 <Filters />
                 <SortSelect />
-                <div className="flex gap-2">
+                <div className="flex flex-wrap gap-2">
                     <Badge
                         hoverable={false}
                         variant={gender === 'Male' ? 'default' : 'outline'}
