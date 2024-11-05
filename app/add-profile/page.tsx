@@ -513,7 +513,8 @@ export default function AddProfile() {
                                     <AlertDialogTitle>Are you sure?</AlertDialogTitle>
                                     <AlertDialogDescription>
                                         This will submit your profile. Please make sure all
-                                        information is correct.
+                                        information is correct, you will not be able to edit it
+                                        after submission.
                                     </AlertDialogDescription>
                                 </AlertDialogHeader>
                                 <AlertDialogFooter>
