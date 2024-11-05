@@ -20,12 +20,13 @@ import ProfileDetails from './ProfileDetails';
 
 interface ProfileCardProps {
     profile: Profile;
+    turnSeenOff?: boolean;
 }
 
-export default function ProfileCard({ profile }: ProfileCardProps) {
+export default function ProfileCard({ profile, turnSeenOff }: ProfileCardProps) {
     const [isExpanded, setIsExpanded] = useState(false);
     const { seenProfiles, markAsSeen, markAsUnseen } = useSeenProfiles();
-    const isSeen = seenProfiles.has(profile.id.toString());
+    const isSeen = turnSeenOff ? false : seenProfiles.has(profile.id.toString());
     const { saveProfile, removeProfile, isProfileSaved } = useSavedProfiles();
     const isSaved = isProfileSaved(profile.id);
     const sanitizedBio = DOMPurify.sanitize(profile.bio);
@@ -66,7 +67,7 @@ export default function ProfileCard({ profile }: ProfileCardProps) {
                     <CardHeader>
                         <div className="flex items-center justify-between gap-4">
                             <div className="flex items-center gap-2">
-                                <h3 className="break-all text-xl font-semibold sm:text-2xl">
+                                <h3 className="break-all text-xl font-semibold">
                                     {profile.redditUsername}
                                 </h3>
                                 {isSeen && (

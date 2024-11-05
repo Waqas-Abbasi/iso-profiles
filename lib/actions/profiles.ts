@@ -28,7 +28,7 @@ export async function getFilteredProfiles(params: {
         if (params.location) {
             where.location = {
                 contains: params.location,
-                // mode: 'insensitive',
+                mode: 'insensitive',
             };
         }
 
