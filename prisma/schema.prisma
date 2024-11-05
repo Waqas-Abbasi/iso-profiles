@@ -1,0 +1,32 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Profile {
+  id                Int      @id @default(autoincrement())
+  redditUsername    String   @unique
+  createdAt         DateTime @default(now())
+  age               Int
+  gender            String
+  ageRangeMin       Int
+  ageRangeMax       Int
+  location          String
+  willingToRelocate Boolean
+  ethnicity         String
+  openToMixing      Boolean
+  maritalStatus     String
+  marriageTimeline  String
+  characteristics   String
+  religiosity       String
+  education         String
+  educationWanted   String
+  jobStatus         String
+  wantKids          Boolean
+  hobbies           String
+  interesting       String
+}
