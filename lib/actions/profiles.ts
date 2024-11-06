@@ -23,7 +23,9 @@ export async function getFilteredProfiles(params: {
     sort?: string;
 }) {
     try {
-        const where: Prisma.ProfileWhereInput = {};
+        const where: Prisma.ProfileWhereInput = {
+            hidden: false,
+        };
 
         if (params.location) {
             where.location = {
