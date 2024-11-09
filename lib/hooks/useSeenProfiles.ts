@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import { useIsClient } from './useIsClient';
 
@@ -22,22 +22,22 @@ export function useSeenProfiles() {
         }
     }, [isClient]);
 
-    function markAsSeen(profileId: string) {
+    const markAsSeen = useCallback((profileId: string) => {
         setSeenProfileIds((current) => {
             if (current.includes(profileId)) return current;
             const newIds = [...current, profileId];
             localStorage.setItem('seenProfiles', JSON.stringify(newIds));
             return newIds;
         });
-    }
+    }, []);
 
-    function markAsUnseen(profileId: string) {
+    const markAsUnseen = useCallback((profileId: string) => {
         setSeenProfileIds((current) => {
             const newIds = current.filter((id) => id !== profileId);
             localStorage.setItem('seenProfiles', JSON.stringify(newIds));
             return newIds;
         });
-    }
+    }, []);
 
     const seenProfiles = {
         has: (profileId: string) => seenProfileIds?.includes(profileId) ?? false,
