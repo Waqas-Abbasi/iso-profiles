@@ -3,7 +3,7 @@
 import { Profile } from '@prisma/client';
 
 import { DialogTitle } from '@radix-ui/react-dialog';
-import clsx from 'clsx';
+import { clsx } from 'clsx';
 import DOMPurify from 'isomorphic-dompurify';
 import { Bookmark, ExternalLink } from 'lucide-react';
 import Link from 'next/link';

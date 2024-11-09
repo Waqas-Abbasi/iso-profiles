@@ -62,7 +62,10 @@ function ProfileModal({
         return (
             <Dialog open={open} onOpenChange={onOpenChange}>
                 <DialogTrigger asChild>{children}</DialogTrigger>
-                <DialogContent className="max-h-[90dvh] max-w-2xl">
+                <DialogContent
+                    className="max-h-[90dvh] max-w-2xl"
+                    onOpenAutoFocus={(e) => e.preventDefault()}
+                >
                     <ScrollArea className="h-[calc(85dvh-4rem)]">{content}</ScrollArea>
                 </DialogContent>
             </Dialog>
@@ -72,7 +75,7 @@ function ProfileModal({
     return (
         <Drawer open={open} onOpenChange={onOpenChange}>
             <DrawerTrigger asChild>{children}</DrawerTrigger>
-            <DrawerContent>
+            <DrawerContent onOpenAutoFocus={(e) => e.preventDefault()}>
                 <div className="mx-auto h-[calc(100dvh-4rem)] w-full max-w-2xl">
                     <DrawerHeader className="text-left">
                         <DrawerTitle>Profile Details</DrawerTitle>

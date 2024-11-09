@@ -99,7 +99,11 @@ export default function Filters() {
                     Filters
                 </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="flex h-full w-full flex-col">
+            <SheetContent
+                side="right"
+                className="flex h-full w-full flex-col"
+                onOpenAutoFocus={(e) => e.preventDefault()}
+            >
                 <SheetHeader>
                     <SheetTitle>Filter Profiles</SheetTitle>
                 </SheetHeader>
