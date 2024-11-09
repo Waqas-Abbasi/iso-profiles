@@ -3,11 +3,13 @@
 import { Profile } from '@prisma/client';
 
 import { DialogTitle } from '@radix-ui/react-dialog';
+import clsx from 'clsx';
 import DOMPurify from 'isomorphic-dompurify';
 import { Bookmark, ExternalLink } from 'lucide-react';
 import Link from 'next/link';
 
 import { Button } from '@/components/ui/button';
+import { useMediaQuery } from '@/lib/hooks/useMediaQuery';
 
 interface ProfileDetailsProps {
     profile: Profile;
@@ -20,12 +22,15 @@ export default function ProfileDetails({
     isSaved,
     handleSaveToggle,
 }: ProfileDetailsProps) {
+    const isDesktop = useMediaQuery('(min-width: 768px)');
     const sanitizedBio = DOMPurify.sanitize(profile.bio);
 
     return (
         <div className="space-y-6">
             <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-                <DialogTitle className="text-2xl font-bold">Profile Details</DialogTitle>
+                <DialogTitle className={clsx('text-2xl font-bold', !isDesktop && 'hidden')}>
+                    Profile Details
+                </DialogTitle>
 
                 <div className="flex w-full flex-col gap-2 sm:w-auto sm:flex-row sm:items-center">
                     <Button
