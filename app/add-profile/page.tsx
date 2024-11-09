@@ -424,7 +424,8 @@ export default function AddProfile() {
                                             <FormItem>
                                                 <div className="mb-4 gap-y-2">
                                                     <p className="font-medium">
-                                                        Please answer these questions
+                                                        Please answer these questions (Include the
+                                                        questions as part of your answer)
                                                     </p>
                                                     <ul className="mt-2 list-disc space-y-2 pl-4 text-sm">
                                                         <li>
