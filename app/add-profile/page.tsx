@@ -100,12 +100,17 @@ export default function AddProfile() {
 
             const loadingToast = toast.loading('Submitting your profile...');
 
+            const trimmedValues = {
+                ...values,
+                redditUsername: values.redditUsername.trim(),
+            };
+
             const response = await fetch('/api/profiles', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(values),
+                body: JSON.stringify(trimmedValues),
             });
 
             if (!response.ok) {
