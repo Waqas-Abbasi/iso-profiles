@@ -2,10 +2,14 @@ import { ArrowLeft } from 'lucide-react';
 
 import Link from 'next/link';
 
+import { redirect } from 'next/navigation';
+
 import { SavedProfilesList } from '@/components/SavedProfilesList';
 import { Button } from '@/components/ui/button';
 
 export default function SavedProfilesPage() {
+    redirect('/');
+
     return (
         <div className="container mx-auto py-8">
             <Link href="/">

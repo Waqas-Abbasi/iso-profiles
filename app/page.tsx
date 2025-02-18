@@ -1,66 +1,44 @@
-import { PlusCircle } from 'lucide-react';
-import Link from 'next/link';
-
-import ProfilesClient from '@/components/ProfilesClient';
-import { Button } from '@/components/ui/button';
-import { getFilteredProfiles } from '@/lib/actions/profiles';
-
-export default async function ProfilesPage({
-    searchParams,
-}: {
-    searchParams: Promise<{
-        location?: string;
-        userAge?: string;
-        maritalStatus?: string;
-        gender?: string;
-        relocate?: string;
-        marriageTimeline?: string;
-        seen?: 'all' | 'seen' | 'unseen';
-        sort?: string;
-    }>;
-}) {
-    const queryParams = await searchParams;
-
-    const { location, userAge, maritalStatus, gender, relocate, marriageTimeline, sort } =
-        queryParams;
-
-    const profiles = await getFilteredProfiles({
-        location: location,
-        userAge: userAge ? parseInt(userAge) : undefined,
-        maritalStatus: maritalStatus,
-        gender: gender,
-        relocate: relocate,
-        marriageTimeline: marriageTimeline,
-        sort,
-    });
-
+export default function MigrationPage() {
     return (
-        <div className="container mx-auto space-y-8 py-8">
-            <div className="flex flex-col-reverse items-start justify-between gap-4 sm:flex-row sm:items-center">
-                <div className="flex w-full flex-col gap-2">
-                    <h1 className="text-4xl font-bold text-primary">Muslim Marriage Profiles</h1>
-                    <p className="text-muted-foreground">
-                        A match-making directory for Muslims on Reddit looking for spouses. For
-                        those serious about marriage.
+        <div className="container mx-auto flex min-h-[80vh] items-center justify-center py-8">
+            <div className="max-w-2xl space-y-6 text-center">
+                <h1 className="text-4xl font-bold text-primary">Jazakallah Khayrun</h1>
+                <div className="space-y-4 text-lg text-muted-foreground">
+                    <p>
+                        I hope that this was of benefit to you, however I&apos;ve decided not to
+                        continue with this project and instead have developed a full marriage
+                        platform which builds on top of the concept of ISO profiles.
+                    </p>
+                    <p className="font-semibold text-primary">
+                        You can check it out{' '}
+                        <a
+                            href="https://noormatch.com"
+                            className="text-rose-600 underline transition-colors hover:text-primary/90"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            noormatch.com
+                        </a>
+                    </p>
+                    <p className="mt-8 text-base">
+                        All data related to isoprofiles is scheduled for deletion. If you have any
+                        questions, please reach out to{' '}
+                        <a
+                            href="mailto:info@noormatch.com"
+                            className="underline transition-colors hover:text-primary/90"
+                        >
+                            info@noormatch.com
+                        </a>{' '}
+                        or you can also contact me on Reddit:{' '}
+                        <a
+                            href="https://www.reddit.com/user/Brave-Ship/"
+                            className="underline transition-colors hover:text-primary/90"
+                        >
+                            Brave-Ship
+                        </a>
                     </p>
                 </div>
-                <div className="flex w-full items-center justify-end gap-4">
-                    <Link
-                        href="/saved"
-                        className="text-sm text-muted-foreground hover:text-primary hover:underline"
-                    >
-                        Saved Profiles
-                    </Link>
-                    <Link href="/add-profile">
-                        <Button className="flex items-center gap-2">
-                            <PlusCircle className="h-5 w-5" />
-                            Add Profile
-                        </Button>
-                    </Link>
-                </div>
             </div>
-
-            <ProfilesClient initialProfiles={profiles} />
         </div>
     );
 }
