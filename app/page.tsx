@@ -12,7 +12,7 @@ export default function MigrationPage() {
                     <p className="font-semibold text-primary">
                         You can check it out{' '}
                         <a
-                            href="https://noormatch.com"
+                            href="https://noormatch.com?utm_source=isoprofiles&utm_medium=migration_page&utm_campaign=sunset"
                             className="text-rose-600 underline transition-colors hover:text-primary/90"
                             target="_blank"
                             rel="noopener noreferrer"
